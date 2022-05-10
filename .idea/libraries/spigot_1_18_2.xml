@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="spigot-1.18.2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../PluginsforPK/spigot-1.18.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../PluginsforPK/craftbukkit-1.18.2.jar!/" />
+      <root url="file://$PROJECT_DIR$/../PluginsforPK" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/../PluginsforPK/ProjectKorra-master/ProjectKorra-master/src" />
+      <root url="file://$PROJECT_DIR$/../PluginsforPK" />
+    </SOURCES>
+    <jarDirectory url="file://$PROJECT_DIR$/../PluginsforPK" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/../PluginsforPK" recursive="false" type="SOURCES" />
+  </library>
+</component>

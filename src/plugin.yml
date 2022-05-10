@@ -1,0 +1,7 @@
+name: NetherBingo
+author: Roxo
+version: '${project.version}'
+api-version: 1.18
+main: me.roxo.netherbingo.NetherBingo
+commands:
+  OpenBingoBoard:
