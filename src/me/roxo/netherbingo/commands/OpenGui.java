@@ -3,6 +3,7 @@ package me.roxo.netherbingo.commands;
 import me.roxo.netherbingo.NetherBingo;
 import me.roxo.netherbingo.gui.PlayerAchevmentGUI;
 import me.roxo.netherbingo.managers.GamePlayerData;
+import me.roxo.netherbingo.managers.GameState;
 import me.roxo.netherbingo.tasks.CheckInventoryForItems;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -19,6 +20,10 @@ public class OpenGui implements CommandExecutor, SetCommands {
     @Override
     public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {
         if(!(commandSender instanceof Player)){
+            return false;
+        }
+        if(plugin.getGameManager().getState() != GameState.ACTIVE){
+            commandSender.sendMessage("Cant Access Yet");
             return false;
         }
         Player p = (Player) commandSender;

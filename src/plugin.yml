@@ -6,3 +6,4 @@ main: me.roxo.netherbingo.NetherBingo
 commands:
   OpenBingoBoard:
   SetRespawnandSpawnLocation:
+  StartNetherBingo:
