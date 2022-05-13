@@ -1,7 +1,9 @@
 package me.roxo.netherbingo.gui;
 
 import me.roxo.netherbingo.managers.GamerManager;
-import me.roxo.netherbingo.managers.ItemsToGet;
+import me.roxo.netherbingo.managers.ItemBuilder;
+import me.roxo.netherbingo.managers.ItemsData;
+import me.roxo.netherbingo.managers.PlayerAchevemtn;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -24,13 +26,12 @@ public class PlayerAchevmentGUI implements GUI{
 
         inventory = Bukkit.createInventory(null, 36, "Achievement Board");
 
-        for(ItemsToGet itemsToGet : this.gameManager.getGameWorld().getIslands()){
-            ItemBuilder itemBuilder = new ItemBuilder(new ItemBuilder(element.getElement().material())
-                    .setName(element.getElement().formattedName())
-                    .addLoreLine(element.ismMember(player) ? "Selected" : "Not Selected")
-                    .addLoreLine(element.getPlayers().size() + "/" + this.gameManager.getGameWorld().getMaxTeamSize() + " Players")
+        for(PlayerAchevemtn itemsToGet : this.gameManager.getItems()){
+            ItemBuilder itemBuilder = new ItemBuilder(new ItemBuilder(itemsToGet.material(player))
+                    .setName(itemsToGet.formattedName())
+                    .addLoreLine(itemsToGet.isItemAchieved(player) ? "Yes" : "No")//TODO isItemAchevied need work
                     .toItemStack());
-            if(element.ismMember(player)){
+            if(itemsToGet.isItemAchieved(player)){
                 itemBuilder.addEnchant(Enchantment.CHANNELING, 1).hideEnchantment();
 
             }
@@ -45,7 +46,7 @@ public class PlayerAchevmentGUI implements GUI{
 
     @Override
     public Inventory getInventory() {
-        return inventry;
+        return inventory;
     }
 
     @Override
@@ -55,31 +56,26 @@ public class PlayerAchevmentGUI implements GUI{
 
     @Override
     public GUI handleClick(Player player, ItemStack itemStack, InventoryView view) {
-        TeamElement clickedColor = null;
+        PlayerAchevemtn clickedColor = null;
 
         String itemName = ChatColor.stripColor(itemStack.getItemMeta().getDisplayName());
-        for(TeamElement element : TeamElement.values()){
+        for(PlayerAchevemtn element : PlayerAchevemtn.values()){
             if(itemName.equalsIgnoreCase(element.formattedName())) {
                 clickedColor = element;
                 break;
             }
         }
 
-        Optional<Island> optional = gameManager.getGameWorld().getIslands().stream().filter(island -> island.ismMember(player)).findFirst();
-        optional.ifPresent(island -> {
-            island.removeMember(player);
 
 
-        });
-
-
-        TeamElement finalClickedColor = clickedColor;
-        Optional<Island> optionalIsland = gameManager.getGameWorld().getIslands().stream().filter(island -> island.getElement() == finalClickedColor).findFirst();
+        PlayerAchevemtn finalClickedColor = clickedColor;
+        /*
+        Optional<ItemsData> optionalIsland = gameManager.getGameWorld().getIslands().stream().filter(island -> island.getElement() == finalClickedColor).findFirst();
         if (optionalIsland.isPresent()) {
-            Island island = optionalIsland.get();
+            ItemsData island = optionalIsland.get();
             if(island.getPlayers().size() != gameManager.getGameWorld().getMaxTeamSize()){
                 island.addMember(player);
-                gameManager.getPlayerManager().giveTeamArmor(player,island);
+                //gameManager.getPlayerManager().giveTeamArmor(player,island);
             }else{
                 player.sendMessage("That Team is full.");
 
@@ -91,6 +87,7 @@ public class PlayerAchevmentGUI implements GUI{
 
 
         }
+        */
 
         return null;
     }
