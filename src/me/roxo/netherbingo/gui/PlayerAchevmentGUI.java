@@ -1,8 +1,8 @@
 package me.roxo.netherbingo.gui;
 
+import me.roxo.netherbingo.managers.GamePlayerData;
 import me.roxo.netherbingo.managers.GamerManager;
 import me.roxo.netherbingo.managers.ItemBuilder;
-import me.roxo.netherbingo.managers.ItemsData;
 import me.roxo.netherbingo.managers.PlayerAchevemtn;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -12,8 +12,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryView;
 import org.bukkit.inventory.ItemStack;
-
-import java.util.Optional;
 
 public class PlayerAchevmentGUI implements GUI{
 
@@ -27,11 +25,12 @@ public class PlayerAchevmentGUI implements GUI{
         inventory = Bukkit.createInventory(null, 36, "Achievement Board");
 
         for(PlayerAchevemtn itemsToGet : this.gameManager.getItems()){
+            GamePlayerData a = new GamePlayerData(player, itemsToGet, gameManager);
             ItemBuilder itemBuilder = new ItemBuilder(new ItemBuilder(itemsToGet.material(player))
                     .setName(itemsToGet.formattedName())
-                    .addLoreLine(itemsToGet.isItemAchieved(player) ? "Yes" : "No")//TODO isItemAchevied need work
+                    .addLoreLine(a.isItemAchieved(player, itemsToGet.material(player)) ? "Yes" : "No")//TODO isItemAchevied need work
                     .toItemStack());
-            if(itemsToGet.isItemAchieved(player)){
+            if(itemsToGet.isItemAchieved(player, itemsToGet.material(player))){
                 itemBuilder.addEnchant(Enchantment.CHANNELING, 1).hideEnchantment();
 
             }

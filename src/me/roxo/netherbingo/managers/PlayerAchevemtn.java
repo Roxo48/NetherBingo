@@ -156,7 +156,12 @@ public enum PlayerAchevemtn {
         return teamWoolMatarial;
     }
 
-    public boolean isItemAchieved(Player player) {
+    public boolean isItemAchieved(Player player, Material material) {
+
+
+
+
+
         //TODO do this
         return false;
     }

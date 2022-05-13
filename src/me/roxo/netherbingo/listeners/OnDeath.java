@@ -2,7 +2,6 @@ package me.roxo.netherbingo.listeners;
 
 import me.roxo.netherbingo.NetherBingo;
 import me.roxo.netherbingo.managers.GameState;
-import me.roxo.netherbingo.managers.ItemsData;
 import me.roxo.netherbingo.tasks.PlayerRespawnTask;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;

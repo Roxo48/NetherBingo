@@ -3,6 +3,7 @@ package me.roxo.netherbingo.managers;
 import me.roxo.netherbingo.NetherBingo;
 import me.roxo.netherbingo.tasks.GameStartingTask;
 import org.bukkit.Bukkit;
+import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -38,6 +39,8 @@ public class GamerManager {
                 for(Player p : Bukkit.getServer().getOnlinePlayers()) {
                     p.teleport(new Location(Bukkit.getWorlds().get(0), 0,60,0));
                     allPlayersInGame.add(p);
+                    p.setInvulnerable(true);
+                    p.setGameMode(GameMode.ADVENTURE);
 
 
                 }
@@ -51,6 +54,8 @@ public class GamerManager {
 
                 for(Player p : allPlayersInGame) {
                     playerManager.setPlaying(p);
+                    p.setInvulnerable(false);
+                    p.setGameMode(GameMode.SURVIVAL);
                     p.teleport(Objects.requireNonNull(plugin.getConfig().getLocation("respawn")));
                 }
 
@@ -58,10 +63,12 @@ public class GamerManager {
 
                 break;
             case WON:
+                //if the player has the most object then they win!!!
 
 
                 break;
             case RESET:
+                //honestly idk what would go here maybe world restet or nther restet.
 
                 break;
 

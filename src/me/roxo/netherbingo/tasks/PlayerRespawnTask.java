@@ -1,14 +1,14 @@
 package me.roxo.netherbingo.tasks;
 
 import me.roxo.netherbingo.managers.GamerManager;
-import me.roxo.netherbingo.managers.ItemsData;
+import me.roxo.netherbingo.managers.GamePlayerData;
 import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
 
 public class PlayerRespawnTask implements Runnable{
 
     private Player player;
-    private ItemsData playerislasnd;
+    private GamePlayerData playerislasnd;
     private final GamerManager gameManager;
 
 
