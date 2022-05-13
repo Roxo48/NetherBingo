@@ -23,7 +23,7 @@ public class CheckInventoryForItems {
             public void run() {
 
                 for (PlayerAchevemtn element : PlayerAchevemtn.values()) {
-                    if (player.getInventory().contains(element.material(player))) {
+                    if(player.getInventory().contains(element.material(player))) {
                         //TODO this check so return or give some a value like boolean if a player has got this item.
 
 
