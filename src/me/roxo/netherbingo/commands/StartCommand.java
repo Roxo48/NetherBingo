@@ -2,6 +2,7 @@ package me.roxo.netherbingo.commands;
 
 import me.roxo.netherbingo.managers.GameState;
 import me.roxo.netherbingo.managers.GamerManager;
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -28,6 +29,7 @@ public class StartCommand implements CommandExecutor, SetCommands {
             //if(player.hasPermission("spiritwars.generatorspawn")) {
             Location location = player.getLocation();
             if (!commandSender.isOp()) return true;
+
             gamerManager.setState(GameState.STARTING);
 
 

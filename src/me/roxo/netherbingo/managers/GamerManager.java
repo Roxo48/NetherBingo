@@ -1,6 +1,7 @@
 package me.roxo.netherbingo.managers;
 
 import me.roxo.netherbingo.NetherBingo;
+import me.roxo.netherbingo.tasks.DoTasks;
 import me.roxo.netherbingo.tasks.GameStartingTask;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
@@ -22,13 +23,14 @@ public class GamerManager {
     private GameStartingTask gameStartingTask;
     public List<Player> allPlayersInGame = new ArrayList<>();
     private GUIManager guiManager;
+    private DoTasks doTasks;
 
 
     public GamerManager(NetherBingo plugin) {
         this.plugin = plugin;
         this.guiManager = new GUIManager();
         this.playerManager = new PlayerManager(this);
-
+        this.doTasks = new DoTasks(this);
     }
 
     public  void setState(GameState state){
@@ -58,11 +60,13 @@ public class GamerManager {
                     p.setGameMode(GameMode.SURVIVAL);
                     p.teleport(Objects.requireNonNull(plugin.getConfig().getLocation("respawn")));
                 }
+                doTasks.doTasks();
 
 
 
                 break;
             case WON:
+
                 //if the player has the most object then they win!!!
 
 
@@ -79,6 +83,7 @@ public class GamerManager {
 
 
     }
+    public DoTasks getDoTasks(){return doTasks;}
     public NetherBingo getPlugin(){
         return plugin;
     }
