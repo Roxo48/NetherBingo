@@ -44,7 +44,7 @@ public class GamerManager {
                     allPlayersInGame.add(p);
                     p.setInvulnerable(true);
                     p.setGameMode(GameMode.ADVENTURE);
-                    gamePlayerData.put(p, new PlayerAchevemtn, this);
+                    gamePlayerData.add(p, new PlayerAchevemtn, this);
 
 
                 }
