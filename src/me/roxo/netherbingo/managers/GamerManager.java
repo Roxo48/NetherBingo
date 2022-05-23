@@ -24,13 +24,14 @@ public class GamerManager {
     public List<Player> allPlayersInGame = new ArrayList<>();
     private GUIManager guiManager;
     private DoTasks doTasks;
-
+    private List<GamePlayerData> gamePlayerData = new ArrayList<>();
 
     public GamerManager(NetherBingo plugin) {
         this.plugin = plugin;
         this.guiManager = new GUIManager();
         this.playerManager = new PlayerManager(this);
         this.doTasks = new DoTasks(this);
+        
     }
 
     public  void setState(GameState state){
@@ -43,6 +44,7 @@ public class GamerManager {
                     allPlayersInGame.add(p);
                     p.setInvulnerable(true);
                     p.setGameMode(GameMode.ADVENTURE);
+                    gamePlayerData.put(p, new PlayerAchevemtn, this);
 
 
                 }
@@ -82,6 +84,9 @@ public class GamerManager {
         }
 
 
+    }
+    public ArrayList<GamePlayerData> getGamePlayerData(){
+        return gamePlayerData;
     }
     public DoTasks getDoTasks(){return doTasks;}
     public NetherBingo getPlugin(){
