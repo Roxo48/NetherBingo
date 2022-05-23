@@ -31,6 +31,7 @@ public class PlayerAchevmentGUI implements GUI{
                     a = gamePlayerData;
                 }
             }
+
             if(a == null){
                 System.out.println("this is null 35 player achievement");
                 return;
