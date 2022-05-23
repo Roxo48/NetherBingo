@@ -25,10 +25,21 @@ public class PlayerAchevmentGUI implements GUI{
         inventory = Bukkit.createInventory(null, 36, "Achievement Board");
 
         for(PlayerAchevemtn itemsToGet : this.gameManager.getItems()){
-            GamePlayerData a = new GamePlayerData(player, itemsToGet, gameManager);
+            GamePlayerData a = null;
+            for(GamePlayerData gamePlayerData : gameManager.getGamePlayerData()) {
+                if (gamePlayerData.getPlayer().getUniqueId() == player.getUniqueId()) {//TODO this might be a problem
+                    a = gamePlayerData;
+                }
+            }
+            if(a == null){
+                System.out.println("this is null 35 player achievement");
+                return;
+            }
+            System.out.println(a.isItemAchieved(player, itemsToGet) + "item = " + itemsToGet.name());
             ItemBuilder itemBuilder = new ItemBuilder(new ItemBuilder(itemsToGet.material(player))
                     .setName(itemsToGet.formattedName())
-                    .addLoreLine(a.isItemAchieved(player, itemsToGet.material(player)) ? "Yes" : "No")//TODO isItemAchevied need work
+
+                    .addLoreLine(a.isItemAchieved(player, itemsToGet) ? "Yes" : "No")//TODO isItemAchevied need work
                     .toItemStack());
             if(itemsToGet.isItemAchieved(player, itemsToGet.material(player))){
                 itemBuilder.addEnchant(Enchantment.CHANNELING, 1).hideEnchantment();
@@ -37,7 +48,7 @@ public class PlayerAchevmentGUI implements GUI{
             inventory.addItem(itemBuilder.toItemStack());
 
         }
-        inventory.addItem(new ItemBuilder(Material.BARRIER).setName(ChatColor.RED + "EXIT").toItemStack());
+        inventory.setItem(32, new ItemBuilder(Material.BARRIER).setName(ChatColor.RED + "EXIT").toItemStack());
     }
 
 

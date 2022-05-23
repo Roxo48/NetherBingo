@@ -1,5 +1,6 @@
 package me.roxo.netherbingo.commands;
 
+import me.roxo.netherbingo.NetherBingo;
 import me.roxo.netherbingo.managers.GameState;
 import me.roxo.netherbingo.managers.GamerManager;
 import org.bukkit.Bukkit;
@@ -14,10 +15,10 @@ import org.jetbrains.annotations.NotNull;
 
 public class StartCommand implements CommandExecutor, SetCommands {
 
-    private final GamerManager gamerManager;
+    private final NetherBingo gamerManager;
 
     public StartCommand(GamerManager gamerManager) {
-        this.gamerManager = gamerManager;
+        this.gamerManager = gamerManager.getPlugin();
     }
 
     @Override
@@ -30,7 +31,7 @@ public class StartCommand implements CommandExecutor, SetCommands {
             Location location = player.getLocation();
             if (!commandSender.isOp()) return true;
 
-            gamerManager.setState(GameState.STARTING);
+            gamerManager.getGameManager().setState(GameState.STARTING);
 
 
             // }else{player.sendMessage("you dont have perms");}

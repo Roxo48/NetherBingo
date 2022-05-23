@@ -24,6 +24,7 @@ public class GamerManager {
     public List<Player> allPlayersInGame = new ArrayList<>();
     private GUIManager guiManager;
     private DoTasks doTasks;
+    private ArrayList<GamePlayerData> gamePlayerData = new ArrayList<>();
 
 
     public GamerManager(NetherBingo plugin) {
@@ -43,6 +44,8 @@ public class GamerManager {
                     allPlayersInGame.add(p);
                     p.setInvulnerable(true);
                     p.setGameMode(GameMode.ADVENTURE);
+                    GamePlayerData b = new GamePlayerData(p, this);
+                    gamePlayerData.add(b);
 
 
                 }
@@ -82,6 +85,9 @@ public class GamerManager {
         }
 
 
+    }
+    public ArrayList<GamePlayerData> getGamePlayerData(){
+        return gamePlayerData;
     }
     public DoTasks getDoTasks(){return doTasks;}
     public NetherBingo getPlugin(){

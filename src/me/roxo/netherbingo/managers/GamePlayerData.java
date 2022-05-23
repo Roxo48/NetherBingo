@@ -4,6 +4,7 @@ import me.roxo.netherbingo.tasks.CheckInventoryForItems;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,37 +12,40 @@ public class GamePlayerData {
 
 //this is Island in spiritwars
 private final GamerManager gameManager;
-    private  PlayerAchevemtn playerAchevemtn;
+
     private Player player;
+    private ArrayList<Player> players = new ArrayList<>();
     private Map<PlayerAchevemtn,Boolean> playerAchievementBooleanMap = new HashMap<PlayerAchevemtn,Boolean>();
 
-    public GamePlayerData(Player player, PlayerAchevemtn playerAchevemtn, GamerManager gameManager){
+    public GamePlayerData(Player player, GamerManager gameManager){
         this.player = player;
-        this.playerAchevemtn = playerAchevemtn;
+        for(Player player1 : players){
+            if(player == player1){break;}
+
+        }
+
         this.gameManager = gameManager;
     }
 
-    public PlayerAchevemtn getPlayerAchevemtn() {
-        return playerAchevemtn;
-    }
 
-    public boolean isItemAchieved(Player player, Material material){
+
+    public boolean isItemAchieved(Player player, PlayerAchevemtn material){
         //for (Map.Entry<String, Integer> me :
             //    hm.entrySet()) {
-            for(Map.Entry<PlayerAchevemtn,Boolean> me : playerAchievementBooleanMap.entrySet()){
-                if(material == me.getKey().material(player)){
-                    return true;
-                }
-            }
+                try {
+                    if (playerAchievementBooleanMap.get(material)) {//TODO probbaly majke it returen treoo if it is the boolean treee.
+                        return true;
+
+                    }
+                }catch (Exception e){return false;}
+
         return false;
     }
-    public boolean setItemAchieved(Player player, Material material){
-            for(PlayerAchevemtn element : PlayerAchevemtn.values()){
-                if(material == element.material(player.getPlayer())) {
-                    playerAchievementBooleanMap.put(element,true);
+    public boolean setItemAchieved(Player player, PlayerAchevemtn material){
 
-                }
-            }
+                    playerAchievementBooleanMap.put(material,true);
+
+
 
 
         return false;
@@ -49,4 +53,9 @@ private final GamerManager gameManager;
     public Player getPlayer(){
         return player;
     }
+    public ArrayList<Player> getPlayers(){
+        return players;
+    }
+    public Map<PlayerAchevemtn,Boolean> getPlayerAchievementBooleanMap(){return  playerAchievementBooleanMap;}
+
 }
