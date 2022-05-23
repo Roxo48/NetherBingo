@@ -23,7 +23,7 @@ public class PlayerAchevmentGUI implements GUI{
         this.gameManager = gameManager;
 
         inventory = Bukkit.createInventory(null, 36, "Achievement Board");
-
+        //TODO in here find if the player is in the gamermager.getGamerplayerBata and then get the player. 
         for(PlayerAchevemtn itemsToGet : this.gameManager.getItems()){
             GamePlayerData a = null;
             for(GamePlayerData gamePlayerData : gameManager.getGamePlayerData()) {
