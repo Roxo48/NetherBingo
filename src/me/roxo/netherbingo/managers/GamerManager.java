@@ -3,10 +3,7 @@ package me.roxo.netherbingo.managers;
 import me.roxo.netherbingo.NetherBingo;
 import me.roxo.netherbingo.tasks.DoTasks;
 import me.roxo.netherbingo.tasks.GameStartingTask;
-import org.bukkit.Bukkit;
-import org.bukkit.GameMode;
-import org.bukkit.Location;
-import org.bukkit.Material;
+import org.bukkit.*;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
@@ -54,6 +51,7 @@ public class GamerManager {
 
                 break;
             case ACTIVE:
+                Location loc = plugin.getConfig().getLocation("respawn");
                 if(this.gameStartingTask != null){this.gameStartingTask.cancel();}
                 this.gameStartingTask = null;
 
@@ -63,6 +61,11 @@ public class GamerManager {
                     p.setGameMode(GameMode.SURVIVAL);
                     p.teleport(Objects.requireNonNull(plugin.getConfig().getLocation("respawn")));
                 }
+
+                loc.add(8,loc.getY(),8).getBlock().setType(Material.BLACK_GLAZED_TERRACOTTA);
+                loc.add(-8,loc.getY(),8).getBlock().setType(Material.BLACK_GLAZED_TERRACOTTA);
+                loc.add(8,loc.getY(),-8).getBlock().setType(Material.BLACK_GLAZED_TERRACOTTA);
+                loc.add(-8,loc.getY(),-8).getBlock().setType(Material.BLACK_GLAZED_TERRACOTTA);
                 doTasks.doTasks();
 
 
@@ -89,6 +92,7 @@ public class GamerManager {
     public ArrayList<GamePlayerData> getGamePlayerData(){
         return gamePlayerData;
     }
+    public World getWorld(){return Bukkit.getServer().getWorlds().get(1);}
     public DoTasks getDoTasks(){return doTasks;}
     public NetherBingo getPlugin(){
         return plugin;

@@ -5,6 +5,7 @@ import me.roxo.netherbingo.commands.SetRespawnandSpawnCommand;
 import me.roxo.netherbingo.commands.StartCommand;
 import me.roxo.netherbingo.listeners.OnDeath;
 import me.roxo.netherbingo.listeners.PlayerItemInteractListener;
+import me.roxo.netherbingo.listeners.PlayerTeleportEvent;
 import me.roxo.netherbingo.listeners.onJoin;
 import me.roxo.netherbingo.managers.GamerManager;
 import me.roxo.netherbingo.tasks.PvP;
@@ -21,6 +22,7 @@ public class NetherBingo extends JavaPlugin {
         getCommand("SetRespawnandSpawnLocation").setExecutor(new SetRespawnandSpawnCommand(this));
         getCommand("StartNetherBingo").setExecutor(new StartCommand(gameManager));
         getServer().getPluginManager().registerEvents(new PvP(gameManager),this);
+        getServer().getPluginManager().registerEvents(new PlayerTeleportEvent(gameManager),this);
         getServer().getPluginManager().registerEvents(new onJoin(gameManager),this);
         getServer().getPluginManager().registerEvents(new PlayerItemInteractListener(gameManager),this);
         getServer().getPluginManager().registerEvents(new OnDeath(this),this);
