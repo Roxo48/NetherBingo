@@ -23,11 +23,11 @@ public class CheckInventoryForItems {
         Bukkit.getServer().getScheduler().runTaskAsynchronously(gamerManager.getPlugin(), new Runnable() {
             @Override
             public void run() {
-
+                
                 for (PlayerAchevemtn element : PlayerAchevemtn.values()) {
                     if(player.getPlayer().getInventory().contains(element.material(player.getPlayer()))) {
                         playerAchevemtns.add(element);
-                        GamePlayerData a = new GamePlayerData(player, element, gamerManager);
+                        GamePlayerData a = new GamePlayerData(player, element, gamerManager);//TODO make this have int he gamger maager
                         a.setItemAchieved(player.getPlayer(), element.material(player.getPlayer()));
                 }
             }
