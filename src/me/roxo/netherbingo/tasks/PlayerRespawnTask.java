@@ -31,7 +31,7 @@ public class PlayerRespawnTask implements Runnable{
             return;
 
         }
-        player.sendTitle("You Died","Respawning in" + (5-tick) + "...", (tick==0?20:0),20,0);
+        player.sendTitle("You Died","Respawning in " + (5-tick) + "...", (tick==0?20:0),20,0);
         tick++;
 
 
