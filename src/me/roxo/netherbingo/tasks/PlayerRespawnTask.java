@@ -33,7 +33,10 @@ public class PlayerRespawnTask implements Runnable{
 
         }
         player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, 1,1);
-        player.sendTitle("You Died","Respawning in" + (5-tick) + "...", (tick==0?20:0),20,0);
+        player.sendTitle("You Died","Respawning in " + (5-tick) + "...", (tick==0?20:0),20,0);
+        player.setHealth(20);
+        
+        player.setFoodLevel(19);
         tick++;
 
 

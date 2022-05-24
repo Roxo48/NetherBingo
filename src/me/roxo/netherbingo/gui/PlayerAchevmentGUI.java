@@ -42,7 +42,7 @@ public class PlayerAchevmentGUI implements GUI{
 
                     .addLoreLine(a.isItemAchieved(player, itemsToGet) ? "Yes" : "No")//TODO isItemAchevied need work
                     .toItemStack());
-            if(itemsToGet.isItemAchieved(player, itemsToGet.material(player))){
+            if(a.isItemAchieved(player, itemsToGet)){
                 itemBuilder.addEnchant(Enchantment.CHANNELING, 1).hideEnchantment();
 
             }

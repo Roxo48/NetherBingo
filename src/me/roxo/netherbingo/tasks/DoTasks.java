@@ -21,7 +21,7 @@ public class DoTasks  {
    public void doTasks(){
        //20L = 1 Second
        //have one hour
-       long b = 20 * 60 * 15;
+       long b = 20 * 30 * 1;
 
        new BukkitRunnable() {
            @Override
@@ -29,26 +29,30 @@ public class DoTasks  {
                if(counter % 2 == 0) {
                    for (Player player : gamerManager.getPlayer()) {
 
-                       player.sendTitle("Pvp and Keep Inventory is Enabled", "This is a test.", 20, 20, 20);
+                       player.sendTitle("Pvp and Keep Inventory is Enabled ", "...", 20, 20, 20);
 
                    }
+                   Bukkit.getServer().getWorlds().get(1).setGameRule(GameRule.KEEP_INVENTORY, true);
                    some = true;
                    Bukkit.getServer().getWorlds().get(1).setGameRule(GameRule.KEEP_INVENTORY, true);
                    counter++;
                }else if(counter % 2 != 0) {
                    for (Player player : gamerManager.getPlayer()) {
                        player.setInvulnerable(false);
-                       player.sendTitle("Pvp and Keep Inventory is Enabled", "This is a test.", 20, 20, 20);
+                       player.sendTitle("Pvp and Keep Inventory is Disabled ", "...", 20, 20, 20);
 
                    }
+                   Bukkit.getServer().getWorlds().get(1).setGameRule(GameRule.KEEP_INVENTORY, false);
                    some = false;
                    Bukkit.getServer().getWorlds().get(1).setGameRule(GameRule.KEEP_INVENTORY, false);
                    counter++;
                }
+
            }
 
 
        }.runTaskTimer(gamerManager.getPlugin(), 0L, b);
+
 
    }
 

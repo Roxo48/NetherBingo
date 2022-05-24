@@ -62,10 +62,10 @@ public class GamerManager {
                     p.teleport(Objects.requireNonNull(plugin.getConfig().getLocation("respawn")));
                 }
 
-                loc.add(8,loc.getY(),8).getBlock().setType(Material.BLACK_GLAZED_TERRACOTTA);
-                loc.add(-8,loc.getY(),8).getBlock().setType(Material.BLACK_GLAZED_TERRACOTTA);
-                loc.add(8,loc.getY(),-8).getBlock().setType(Material.BLACK_GLAZED_TERRACOTTA);
-                loc.add(-8,loc.getY(),-8).getBlock().setType(Material.BLACK_GLAZED_TERRACOTTA);
+                    loc.getBlock().setType(Material.BLACK_GLAZED_TERRACOTTA);
+//                loc.add(-4,loc.getY(),4).getBlock().setType(Material.BLACK_GLAZED_TERRACOTTA);
+//                loc.add(4,loc.getY(),-4).getBlock().setType(Material.BLACK_GLAZED_TERRACOTTA);
+//                loc.add(-4,loc.getY(),-4).getBlock().setType(Material.BLACK_GLAZED_TERRACOTTA);
                 doTasks.doTasks();
 
 
