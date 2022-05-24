@@ -42,6 +42,7 @@ public class DoTasks  {
                        player.sendTitle("Pvp and Keep Inventory is Disabled ", "...", 20, 20, 20);
 
                    }
+
                    Bukkit.getServer().getWorlds().get(1).setGameRule(GameRule.KEEP_INVENTORY, false);
                    some = false;
                    Bukkit.getServer().getWorlds().get(1).setGameRule(GameRule.KEEP_INVENTORY, false);
