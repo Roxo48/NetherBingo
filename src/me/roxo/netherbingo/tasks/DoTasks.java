@@ -1,5 +1,6 @@
 package me.roxo.netherbingo.tasks;
 
+import me.roxo.netherbingo.managers.GameState;
 import me.roxo.netherbingo.managers.GamerManager;
 import org.bukkit.Bukkit;
 import org.bukkit.GameRule;
@@ -11,17 +12,19 @@ public class DoTasks  {
     private int counter;
    private final GamerManager gamerManager;
     private boolean some = false;
+    private int done;
 
    public DoTasks(GamerManager gamerManager){
         this.counter = 0;
        this.gamerManager = gamerManager;
+       this.done =  0;
    }
 
 
    public void doTasks(){
        //20L = 1 Second
        //have one hour
-       long b = 20 * 30 * 1;
+       long b = 20 * 60 * 15;
 
        new BukkitRunnable() {
            @Override
@@ -56,6 +59,28 @@ public class DoTasks  {
 
 
    }
+   public void Timer(){
+       long b = 20 * 60 * 30;
+
+       new BukkitRunnable() {
+           @Override
+           public void run() {
+               System.out.println("this is a timer of the timer time timer timer");
+               done++;
+               if(done == 2){
+                gamerManager.setState(GameState.WON);
+               }
+
+           }
+
+
+       }.runTaskTimer(gamerManager.getPlugin(), 0L, b);
+
+
+
+
+   }
+
 
 
    public boolean getPvPBoolean(){
