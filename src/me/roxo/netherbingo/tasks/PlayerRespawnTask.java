@@ -27,6 +27,7 @@ public class PlayerRespawnTask implements Runnable{
     public void run() {
         if(tick == 5){
             player.sendTitle( "Respawned", "",20,20,20);
+            player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BLOCK_HARP,1,1);
             player.setGameMode(GameMode.SURVIVAL);
             player.teleport(gameManager.getPlugin().getConfig().getLocation("respawn"));
             return;

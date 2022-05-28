@@ -38,7 +38,7 @@ public class GameStartingTask extends BukkitRunnable {
         if(timer <= 3){
             List<Player> names = (List<Player>) Bukkit.getServer().getOnlinePlayers();
             for(Player players : names){
-                players.playSound(players.getLocation(), Sound.MUSIC_DISC_BLOCKS, 1,1);
+                players.playSound(players.getLocation(), Sound.BLOCK_NOTE_BLOCK_BANJO, 1,1);
                 players.sendTitle("", timer+ "", 20,20,20);
 
             }

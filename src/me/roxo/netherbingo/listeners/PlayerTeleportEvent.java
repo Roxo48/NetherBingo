@@ -24,6 +24,13 @@ public class PlayerTeleportEvent implements Listener {
         if(player.getLocation().getBlock().getRelative(BlockFace.DOWN).getType() == Material.BLACK_GLAZED_TERRACOTTA && player.isSneaking()){
             double randX = Math.random() * 6000;
             double randZ = Math.random() * 6000;
+            double rand = (Math.random() * 10);
+            if(rand > 6.5){
+                randX = -randX;
+            } else if(rand < 3.5){
+                randZ = -randZ;
+            }
+
             Location loc = new Location(gamerManager.getWorld(), randX, 60 , randZ);
             loc.getBlock().setType(Material.PURPLE_GLAZED_TERRACOTTA);
 
@@ -51,6 +58,18 @@ public class PlayerTeleportEvent implements Listener {
             new Location(loc.getWorld(), loc.getX() - 1, loc.getY() + 2, loc.getZ() + 1).getBlock().setType(Material.AIR);
             new Location(loc.getWorld(), loc.getX() - 1, loc.getY() + 2, loc.getZ() + 0).getBlock().setType(Material.AIR);
             new Location(loc.getWorld(), loc.getX() - 1, loc.getY() + 2, loc.getZ() - 1).getBlock().setType(Material.AIR);
+
+            new Location(loc.getWorld(), loc.getX() + 0, loc.getY() - 1, loc.getZ() + 1).getBlock().setType(Material.OBSIDIAN);
+            new Location(loc.getWorld(), loc.getX() + 0, loc.getY() - 1, loc.getZ() + 0).getBlock().setType(Material.OBSIDIAN);
+            new Location(loc.getWorld(), loc.getX() + 0, loc.getY() - 1, loc.getZ() - 1).getBlock().setType(Material.OBSIDIAN);
+
+            new Location(loc.getWorld(), loc.getX() + 1, loc.getY() - 1, loc.getZ() + 1).getBlock().setType(Material.OBSIDIAN);
+            new Location(loc.getWorld(), loc.getX() + 1, loc.getY() - 1, loc.getZ() + 0).getBlock().setType(Material.OBSIDIAN);
+            new Location(loc.getWorld(), loc.getX() + 1, loc.getY() - 1, loc.getZ() - 1).getBlock().setType(Material.OBSIDIAN);
+
+            new Location(loc.getWorld(), loc.getX() - 1, loc.getY() - 1, loc.getZ() + 1).getBlock().setType(Material.OBSIDIAN);
+            new Location(loc.getWorld(), loc.getX() - 1, loc.getY() - 1, loc.getZ() + 0).getBlock().setType(Material.OBSIDIAN);
+            new Location(loc.getWorld(), loc.getX() - 1, loc.getY() - 1, loc.getZ() - 1).getBlock().setType(Material.OBSIDIAN);
 
             player.teleport(loc);
 
