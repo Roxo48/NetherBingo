@@ -18,9 +18,9 @@ public class NetherBingo extends JavaPlugin {
     @Override
     public void onEnable(){
         this.gameManager = new GamerManager(this);
-        getCommand("BB").setExecutor(new OpenGui(this));
-        getCommand("SetRespawnandSpawnLocation").setExecutor(new SetRespawnandSpawnCommand(this));
-        getCommand("StartNetherBingo").setExecutor(new StartCommand(gameManager));
+        getCommand("board ").setExecutor(new OpenGui(this));
+        getCommand("setbingospawn").setExecutor(new SetRespawnandSpawnCommand(this));
+        getCommand("startgame").setExecutor(new StartCommand(gameManager));
         getServer().getPluginManager().registerEvents(new PvP(gameManager),this);
         getServer().getPluginManager().registerEvents(new PlayerTeleportEvent(gameManager),this);
         getServer().getPluginManager().registerEvents(new onJoin(gameManager),this);

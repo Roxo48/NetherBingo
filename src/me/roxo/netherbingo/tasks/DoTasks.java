@@ -29,6 +29,7 @@ public class DoTasks  {
        new BukkitRunnable() {
            @Override
            public void run() {
+               Bukkit.getServer().broadcastMessage("Remember shift on the terracotta to be teleported");
                if(counter % 2 == 0) {
                    for (Player player : gamerManager.getPlayer()) {
 
