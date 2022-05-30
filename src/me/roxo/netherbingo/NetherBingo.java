@@ -1,5 +1,6 @@
 package me.roxo.netherbingo;
 
+import me.roxo.netherbingo.commands.GetTimerCommand;
 import me.roxo.netherbingo.commands.OpenGui;
 import me.roxo.netherbingo.commands.SetRespawnandSpawnCommand;
 import me.roxo.netherbingo.commands.StartCommand;
@@ -18,7 +19,8 @@ public class NetherBingo extends JavaPlugin {
     @Override
     public void onEnable(){
         this.gameManager = new GamerManager(this);
-        getCommand("board ").setExecutor(new OpenGui(this));
+        getCommand("board").setExecutor(new OpenGui(this));
+        getCommand("time").setExecutor(new GetTimerCommand(gameManager));
         getCommand("setbingospawn").setExecutor(new SetRespawnandSpawnCommand(this));
         getCommand("startgame").setExecutor(new StartCommand(gameManager));
         getServer().getPluginManager().registerEvents(new PvP(gameManager),this);

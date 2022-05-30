@@ -3,7 +3,7 @@ package me.roxo.netherbingo.managers;
 import me.roxo.netherbingo.NetherBingo;
 import me.roxo.netherbingo.tasks.DoTasks;
 import me.roxo.netherbingo.tasks.GameStartingTask;
-import me.roxo.netherbingo.tasks.QuickSort;
+import me.roxo.netherbingo.tasks.SetBlcoks;
 import org.bukkit.*;
 import org.bukkit.entity.Player;
 
@@ -21,6 +21,16 @@ public class GamerManager {
     private DoTasks doTasks;
     private ArrayList<GamePlayerData> gamePlayerData = new ArrayList<>();
 
+    public int getMinities() {
+        return minities;
+    }
+
+    public void setMinities(int minities) {
+        this.minities = minities;
+    }
+
+    private int minities;
+
 
     public GamerManager(NetherBingo plugin) {
         this.plugin = plugin;
@@ -34,6 +44,7 @@ public class GamerManager {
 
         switch (state){
             case STARTING:
+                Bukkit.getServer().getWorlds().get(1).setAutoSave(false);
                 for(Player p : Bukkit.getServer().getOnlinePlayers()) {
                     p.teleport(new Location(Bukkit.getWorlds().get(0), 0,60,0));
                     allPlayersInGame.add(p);
@@ -61,14 +72,11 @@ public class GamerManager {
                     p.teleport(Objects.requireNonNull(plugin.getConfig().getLocation("respawn")));
                 }
 
+                SetBlcoks setBlcoks = new SetBlcoks(this);
+                setBlcoks.setBlocks();
 
-                new Location(loc.getWorld(), loc.getX() - 8, loc.getY() + 0, loc.getZ() + 0).getBlock().setType(Material.BLACK_GLAZED_TERRACOTTA);
-                new Location(loc.getWorld(), loc.getX() + 8, loc.getY() + 0, loc.getZ() + 0).getBlock().setType(Material.BLACK_GLAZED_TERRACOTTA);
-                new Location(loc.getWorld(), loc.getX() + 0, loc.getY() + 0, loc.getZ() - 8).getBlock().setType(Material.BLACK_GLAZED_TERRACOTTA);
-                new Location(loc.getWorld(), loc.getX() + 0, loc.getY() + 0, loc.getZ() + 8).getBlock().setType(Material.BLACK_GLAZED_TERRACOTTA);
-//                loc.add(-4,loc.getY(),4).getBlock().setType(Material.BLACK_GLAZED_TERRACOTTA);
-//                loc.add(4,loc.getY(),-4).getBlock().setType(Material.BLACK_GLAZED_TERRACOTTA);
-//                loc.add(-4,loc.getY(),-4).getBlock().setType(Material.BLACK_GLAZED_TERRACOTTA);
+                
+
                 doTasks.doTasks();
 
 
@@ -93,16 +101,11 @@ public class GamerManager {
                         playerIntegerMap.put(playerData.getPlayer(), count);
                     }
 
-                ArrayList<Integer> quick = (ArrayList<Integer>) playerIntegerMap.values();
-                int[] a = new int[quick.size()];
-                for(int i = 0; i < quick.size(); i++){
-                    a[i] = quick.get(i);
-                }
+                Collection<Integer> quick =  playerIntegerMap.values();
+                int abc = quick.stream().mapToInt( v -> v).max().orElseThrow(NoSuchElementException::new);
 
-                QuickSort quickSort = new QuickSort();
-                quickSort.quickSort(a, 0, a.length);
                 for(Map.Entry<Player, Integer> me : playerIntegerMap.entrySet()){
-                    if(me.getValue() == a[a.length-1]){
+                    if(me.getValue() == abc){
                         player = me.getKey();
                     }
                 }
@@ -113,6 +116,7 @@ public class GamerManager {
                     Bukkit.broadcastMessage( ChatColor.LIGHT_PURPLE + "THIS IS AN ERROR. IDK WHAT THE ERROR IS " + "this is the error " + e.getLocalizedMessage());
                     e.printStackTrace();
                 }
+
                 setState(GameState.RESET);
 
 
@@ -134,6 +138,7 @@ public class GamerManager {
 
 
     }
+    public void setminites(){}
     public ArrayList<GamePlayerData> getGamePlayerData(){
         return gamePlayerData;
     }

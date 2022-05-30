@@ -61,14 +61,14 @@ public class DoTasks  {
 
    }
    public void Timer(){
-       long b = 20 * 60 * 30;
+       long b = 20L * 60 * gamerManager.getMinities();
 
        new BukkitRunnable() {
            @Override
            public void run() {
                System.out.println("this is a timer of the timer time timer timer");
                done++;
-               if(done == 2){
+               if(done >= gamerManager.getMinities()){
                 gamerManager.setState(GameState.WON);
                }
 
@@ -87,6 +87,6 @@ public class DoTasks  {
    public boolean getPvPBoolean(){
        return some;
    }
-
+   public int getDone(){return done;}
 
 }

@@ -30,7 +30,11 @@ public class StartCommand implements CommandExecutor, SetCommands {
             //if(player.hasPermission("spiritwars.generatorspawn")) {
             Location location = player.getLocation();
             if (!commandSender.isOp()) return true;
-
+            if(strings[0] == null){
+                System.out.println("nononoonoonoono");
+                return false;
+            }
+            gamerManager.getGameManager().setMinities(Integer.parseInt(strings[0]));
             gamerManager.getGameManager().setState(GameState.STARTING);
 
 

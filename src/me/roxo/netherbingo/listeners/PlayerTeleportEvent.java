@@ -59,35 +59,35 @@ public class PlayerTeleportEvent implements Listener {
             new Location(loc.getWorld(), loc.getX() - 1, loc.getY() + 2, loc.getZ() + 0).getBlock().setType(Material.AIR);
             new Location(loc.getWorld(), loc.getX() - 1, loc.getY() + 2, loc.getZ() - 1).getBlock().setType(Material.AIR);
 
-            new Location(loc.getWorld(), loc.getX() + 0, loc.getY() - 1, loc.getZ() + 2).getBlock().setType(Material.OBSIDIAN);
-            new Location(loc.getWorld(), loc.getX() + 0, loc.getY() - 1, loc.getZ() + 1).getBlock().setType(Material.OBSIDIAN);
-            new Location(loc.getWorld(), loc.getX() + 0, loc.getY() - 1, loc.getZ() + 0).getBlock().setType(Material.OBSIDIAN);
-            new Location(loc.getWorld(), loc.getX() + 0, loc.getY() - 1, loc.getZ() - 1).getBlock().setType(Material.OBSIDIAN);
-            new Location(loc.getWorld(), loc.getX() + 0, loc.getY() - 1, loc.getZ() - 2).getBlock().setType(Material.OBSIDIAN);
+            new Location(loc.getWorld(), loc.getX() + 0, loc.getY() - 1, loc.getZ() + 2).getBlock().setType(Material.BEDROCK);
+            new Location(loc.getWorld(), loc.getX() + 0, loc.getY() - 1, loc.getZ() + 1).getBlock().setType(Material.BEDROCK);
+            new Location(loc.getWorld(), loc.getX() + 0, loc.getY() - 1, loc.getZ() + 0).getBlock().setType(Material.BEDROCK);
+            new Location(loc.getWorld(), loc.getX() + 0, loc.getY() - 1, loc.getZ() - 1).getBlock().setType(Material.BEDROCK);
+            new Location(loc.getWorld(), loc.getX() + 0, loc.getY() - 1, loc.getZ() - 2).getBlock().setType(Material.BEDROCK);
 
-            new Location(loc.getWorld(), loc.getX() + 1, loc.getY() - 1, loc.getZ() + 2).getBlock().setType(Material.OBSIDIAN);
-            new Location(loc.getWorld(), loc.getX() + 1, loc.getY() - 1, loc.getZ() + 1).getBlock().setType(Material.OBSIDIAN);
-            new Location(loc.getWorld(), loc.getX() + 1, loc.getY() - 1, loc.getZ() + 0).getBlock().setType(Material.OBSIDIAN);
-            new Location(loc.getWorld(), loc.getX() + 1, loc.getY() - 1, loc.getZ() - 1).getBlock().setType(Material.OBSIDIAN);
-            new Location(loc.getWorld(), loc.getX() + 1, loc.getY() - 1, loc.getZ() - 2).getBlock().setType(Material.OBSIDIAN);
+            new Location(loc.getWorld(), loc.getX() + 1, loc.getY() - 1, loc.getZ() + 2).getBlock().setType(Material.BEDROCK);
+            new Location(loc.getWorld(), loc.getX() + 1, loc.getY() - 1, loc.getZ() + 1).getBlock().setType(Material.BEDROCK);
+            new Location(loc.getWorld(), loc.getX() + 1, loc.getY() - 1, loc.getZ() + 0).getBlock().setType(Material.BEDROCK);
+            new Location(loc.getWorld(), loc.getX() + 1, loc.getY() - 1, loc.getZ() - 1).getBlock().setType(Material.BEDROCK);
+            new Location(loc.getWorld(), loc.getX() + 1, loc.getY() - 1, loc.getZ() - 2).getBlock().setType(Material.BEDROCK);
 
-            new Location(loc.getWorld(), loc.getX() - 1, loc.getY() - 1, loc.getZ() + 2).getBlock().setType(Material.OBSIDIAN);
-            new Location(loc.getWorld(), loc.getX() - 1, loc.getY() - 1, loc.getZ() + 1).getBlock().setType(Material.OBSIDIAN);
-            new Location(loc.getWorld(), loc.getX() - 1, loc.getY() - 1, loc.getZ() + 0).getBlock().setType(Material.OBSIDIAN);
-            new Location(loc.getWorld(), loc.getX() - 1, loc.getY() - 1, loc.getZ() - 1).getBlock().setType(Material.OBSIDIAN);
-            new Location(loc.getWorld(), loc.getX() - 1, loc.getY() - 1, loc.getZ() - 2).getBlock().setType(Material.OBSIDIAN);
+            new Location(loc.getWorld(), loc.getX() - 1, loc.getY() - 1, loc.getZ() + 2).getBlock().setType(Material.BEDROCK);
+            new Location(loc.getWorld(), loc.getX() - 1, loc.getY() - 1, loc.getZ() + 1).getBlock().setType(Material.BEDROCK);
+            new Location(loc.getWorld(), loc.getX() - 1, loc.getY() - 1, loc.getZ() + 0).getBlock().setType(Material.BEDROCK);
+            new Location(loc.getWorld(), loc.getX() - 1, loc.getY() - 1, loc.getZ() - 1).getBlock().setType(Material.BEDROCK);
+            new Location(loc.getWorld(), loc.getX() - 1, loc.getY() - 1, loc.getZ() - 2).getBlock().setType(Material.BEDROCK);
 
-            new Location(loc.getWorld(), loc.getX() + 2, loc.getY() - 1, loc.getZ() + 2).getBlock().setType(Material.OBSIDIAN);
-            new Location(loc.getWorld(), loc.getX() + 2, loc.getY() - 1, loc.getZ() + 1).getBlock().setType(Material.OBSIDIAN);
-            new Location(loc.getWorld(), loc.getX() + 2, loc.getY() - 1, loc.getZ() + 0).getBlock().setType(Material.OBSIDIAN);
-            new Location(loc.getWorld(), loc.getX() + 2, loc.getY() - 1, loc.getZ() - 1).getBlock().setType(Material.OBSIDIAN);
-            new Location(loc.getWorld(), loc.getX() + 2, loc.getY() - 1, loc.getZ() - 2).getBlock().setType(Material.OBSIDIAN);
+            new Location(loc.getWorld(), loc.getX() + 2, loc.getY() - 1, loc.getZ() + 2).getBlock().setType(Material.BEDROCK);
+            new Location(loc.getWorld(), loc.getX() + 2, loc.getY() - 1, loc.getZ() + 1).getBlock().setType(Material.BEDROCK);
+            new Location(loc.getWorld(), loc.getX() + 2, loc.getY() - 1, loc.getZ() + 0).getBlock().setType(Material.BEDROCK);
+            new Location(loc.getWorld(), loc.getX() + 2, loc.getY() - 1, loc.getZ() - 1).getBlock().setType(Material.BEDROCK);
+            new Location(loc.getWorld(), loc.getX() + 2, loc.getY() - 1, loc.getZ() - 2).getBlock().setType(Material.BEDROCK);
 
-            new Location(loc.getWorld(), loc.getX() - 2, loc.getY() - 1, loc.getZ() + 2).getBlock().setType(Material.OBSIDIAN);
-            new Location(loc.getWorld(), loc.getX() - 2, loc.getY() - 1, loc.getZ() + 1).getBlock().setType(Material.OBSIDIAN);
-            new Location(loc.getWorld(), loc.getX() - 2, loc.getY() - 1, loc.getZ() + 0).getBlock().setType(Material.OBSIDIAN);
-            new Location(loc.getWorld(), loc.getX() - 2, loc.getY() - 1, loc.getZ() - 1).getBlock().setType(Material.OBSIDIAN);
-            new Location(loc.getWorld(), loc.getX() - 2, loc.getY() - 1, loc.getZ() - 2).getBlock().setType(Material.OBSIDIAN);
+            new Location(loc.getWorld(), loc.getX() - 2, loc.getY() - 1, loc.getZ() + 2).getBlock().setType(Material.BEDROCK);
+            new Location(loc.getWorld(), loc.getX() - 2, loc.getY() - 1, loc.getZ() + 1).getBlock().setType(Material.BEDROCK);
+            new Location(loc.getWorld(), loc.getX() - 2, loc.getY() - 1, loc.getZ() + 0).getBlock().setType(Material.BEDROCK);
+            new Location(loc.getWorld(), loc.getX() - 2, loc.getY() - 1, loc.getZ() - 1).getBlock().setType(Material.BEDROCK);
+            new Location(loc.getWorld(), loc.getX() - 2, loc.getY() - 1, loc.getZ() - 2).getBlock().setType(Material.BEDROCK);
 
             player.teleport(loc);
 
